@@ -1,0 +1,16 @@
+C:\Dev\DuckeyBoard\DuckeyBoard\bin\Debug\net8.0-windows\DuckeyBoard.exe
+C:\Dev\DuckeyBoard\DuckeyBoard\bin\Debug\net8.0-windows\DuckeyBoard.deps.json
+C:\Dev\DuckeyBoard\DuckeyBoard\bin\Debug\net8.0-windows\DuckeyBoard.runtimeconfig.json
+C:\Dev\DuckeyBoard\DuckeyBoard\bin\Debug\net8.0-windows\DuckeyBoard.dll
+C:\Dev\DuckeyBoard\DuckeyBoard\bin\Debug\net8.0-windows\DuckeyBoard.pdb
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.Form1.resources
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.csproj.GenerateResource.cache
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.AssemblyInfoInputs.cache
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.AssemblyInfo.cs
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.csproj.CoreCompileInputs.cache
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.dll
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\refint\DuckeyBoard.dll
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.pdb
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\DuckeyBoard.genruntimeconfig.cache
+C:\Dev\DuckeyBoard\DuckeyBoard\obj\Debug\net8.0-windows\ref\DuckeyBoard.dll
