@@ -1,0 +1,6 @@
+*.suo
+*.user
+.vs/
+Duckeyboard/bin/
+Duckeyboard/obj/
+packages
