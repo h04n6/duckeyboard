@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DuckeyBoard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+243e2e750d0253e7e59908b8ee2e82f39b144132")]
 [assembly: System.Reflection.AssemblyProductAttribute("DuckeyBoard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DuckeyBoard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
