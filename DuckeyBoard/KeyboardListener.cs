@@ -59,7 +59,10 @@ namespace DuckeyBoard
         {
             Uninstall();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Win32Exception"></exception>
         public void Install()
         {
             _hookProc = KeyboardHookProc;
@@ -68,13 +71,26 @@ namespace DuckeyBoard
             if (_hookHandle == IntPtr.Zero)
                 throw new Win32Exception(Marshal.GetLastWin32Error());
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hookProc"></param>
+        /// <returns></returns>
         private IntPtr SetupHook(KeyboardHookDelegate hookProc)
         {
+            // IntPtr = Int Pointer. Giá trị của con trỏ (pointer) chính là địa chỉ đang trỏ tới.
+            // HINSTANCE = instance handle
             IntPtr hInstance = Marshal.GetHINSTANCE(Assembly.GetExecutingAssembly().GetModules()[0]);
 
             return SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, hInstance, 0);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nCode"></param>
+        /// <param name="wParam"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
         private IntPtr KeyboardHookProc(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (nCode >= 0)

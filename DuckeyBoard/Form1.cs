@@ -1,7 +1,5 @@
 using System.Media;
-using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
 
 namespace DuckeyBoard
 {
@@ -9,6 +7,10 @@ namespace DuckeyBoard
     {
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+
+        KeyboardListener _keyboardHook;
+
+
         // public static readonly string appDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         public static readonly string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
         public static readonly string quackFilePath = Path.Combine(appDirectory, @"quack.wav");
@@ -18,6 +20,28 @@ namespace DuckeyBoard
         public Form1()
         {
             InitializeComponent();
+
+            //ListBox listBox1 = new ListBox();
+            //listBox1.Location = new Point(10, 10);
+            //listBox1.Size = new Size(200, 200);
+            //this.Controls.Add(listBox1);
+
+            //_keyboardHook = new KeyboardListener();
+            //_keyboardHook.Install();
+
+            //_keyboardHook.KeyDown += (sender, e) =>
+            //{
+            //    listBox1.Items.Add("KeyDown: " + e.KeyCode);
+
+            //    listBox1.SelectedIndex = listBox1.Items.Count - 1;
+            //};
+
+            //_keyboardHook.KeyUp += (sender, e) =>
+            //{
+            //    listBox1.Items.Add("KeyUp: " + e.KeyCode);
+
+            //    listBox1.SelectedIndex = listBox1.Items.Count - 1;
+            //};
 
             // Register Hotkey
             // Set an unique id for the Hotkey, it will be used to identify which hotkey was pressed in code to execute something
@@ -38,8 +62,8 @@ namespace DuckeyBoard
                 int id = m.WParam.ToInt32();
                 if (id == 1)
                 {
-                    // MessageBox.Show("A was pressed");
-                    simpleSound.Play();
+                    MessageBox.Show("A was pressed");
+                    // simpleSound.Play();
                 }
             }
 
