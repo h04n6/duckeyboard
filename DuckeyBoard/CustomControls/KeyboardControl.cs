@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DuckeyBoard.Helpers;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace DuckeyBoard.CustomControls
         int _initBtnWidth;
         int _initBtnHeight;
         List<Button> _buttons;
+        Keyboard _keyboard;
 
         public KeyboardControl(
             int initX,
@@ -27,6 +29,7 @@ namespace DuckeyBoard.CustomControls
             _initBtnWidth = initBtnWidth;
             _initBtnHeight = initBtnHeight;
             _buttons = new List<Button>();
+            _keyboard = new Keyboard();
         }
 
         public List<Button> Generate()
@@ -34,7 +37,7 @@ namespace DuckeyBoard.CustomControls
             // Generate keys each row
             // TODO: R1F
             // R1
-            
+
 
             // R2
             // R3
@@ -43,21 +46,17 @@ namespace DuckeyBoard.CustomControls
 
         }
 
-        private List<Button> CreateR1()
+        private IEnumerable<Button> CreateR1()
         {
-            List<string> R1Title = new List<string>()
-            {
+            List<KeyboardKey> R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == KeyboardRow.R1).ToList();
 
-            };
-
-            for (int i = 0; i < 12; i++)
-            {
-                CreateKey()
-            }
+            foreach (var R1Key in R1Keys)
+                yield return CreateKey(R1Key.Title, R1Key.Unit);
         }
 
         public Button CreateKey(string title, float u = 1)
         {
+            // TODO: fix input to KeyboardKey, then calculate location of button by IndexInRow
             Button btn = new Button();
             btn.Text = title;
             btn.Width = (int)(_initBtnWidth * u);
