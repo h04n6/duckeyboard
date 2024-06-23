@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DuckeyBoard.Helpers
+﻿namespace DuckeyBoard.Helpers
 {   
     public class Keyboard
     {
@@ -24,6 +18,7 @@ namespace DuckeyBoard.Helpers
                 ExtraTitle = "~",
                 Unit = 1,
                 Row = KeyboardRow.R1,
+                RowIndex = 1,
                 IndexInRow = 0
             });
             result.Add(new()
@@ -32,7 +27,8 @@ namespace DuckeyBoard.Helpers
                 ExtraTitle = "!",
                 Unit = 1,
                 Row = KeyboardRow.R1,
-                IndexInRow = 1
+                RowIndex = 1,
+                IndexInRow = 0
             });
             result.Add(new()
             {
@@ -40,7 +36,8 @@ namespace DuckeyBoard.Helpers
                 ExtraTitle = "@",
                 Unit = 1,
                 Row = KeyboardRow.R1,
-                IndexInRow = 2
+                RowIndex = 1,
+                IndexInRow = 0
             });
 
 

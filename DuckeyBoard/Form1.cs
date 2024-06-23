@@ -1,3 +1,4 @@
+using DuckeyBoard.CustomControls;
 using System.Media;
 using System.Runtime.InteropServices;
 
@@ -21,6 +22,9 @@ namespace DuckeyBoard
         {
             InitializeComponent();
 
+            KeyboardControl keyboardControl = new KeyboardControl(50, 50);
+            this.Controls.AddRange(keyboardControl.Generate().ToArray());
+
             //ListBox listBox1 = new ListBox();
             //listBox1.Location = new Point(10, 10);
             //listBox1.Size = new Size(200, 200);
@@ -43,15 +47,16 @@ namespace DuckeyBoard
             //    listBox1.SelectedIndex = listBox1.Items.Count - 1;
             //};
 
+
             // Register Hotkey
             // Set an unique id for the Hotkey, it will be used to identify which hotkey was pressed in code to execute something
-            int uniqueHotKeyId = 1;
-            int hotKeyCode = (int)Keys.A;
-            Boolean hotKeyRegistered = RegisterHotKey(this.Handle, uniqueHotKeyId, 0x0000, hotKeyCode);
-            if (hotKeyRegistered)
-                Console.WriteLine("Global HotKey was successfully registered!");
-            else
-                Console.WriteLine("[ERROR] Global HotKey was couldn't be registered!");
+            //int uniqueHotKeyId = 1;
+            //int hotKeyCode = (int)Keys.A;
+            //Boolean hotKeyRegistered = RegisterHotKey(this.Handle, uniqueHotKeyId, 0x0000, hotKeyCode);
+            //if (hotKeyRegistered)
+            //    Console.WriteLine("Global HotKey was successfully registered!");
+            //else
+            //    Console.WriteLine("[ERROR] Global HotKey was couldn't be registered!");
         }
 
         protected override void WndProc(ref Message m)

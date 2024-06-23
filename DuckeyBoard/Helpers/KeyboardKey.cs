@@ -7,6 +7,9 @@
         public string ExtraTitle { get; set; }
         public int Unit { get; set; }
         public KeyboardRow Row { get; set; }
+        public int RowIndex { get; set; }
         public int IndexInRow { get; set; }
+
+        // dev always counts from zero, so `index` starts from 0 :D
     }
 }
