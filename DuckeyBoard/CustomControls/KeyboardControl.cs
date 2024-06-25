@@ -1,4 +1,7 @@
 ﻿using DuckeyBoard.Helpers;
+using System.Reflection;
+using System.Text.Json;
+using System.Windows.Forms;
 
 namespace DuckeyBoard.CustomControls
 {
@@ -33,7 +36,13 @@ namespace DuckeyBoard.CustomControls
             // Generate keys each row
             // TODO: R1F
             // R1
-            return CreateR1();
+            // return CreateR1();
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Helpers\KeyboardTemplate\Fullsize.json");
+            string jsonData = File.ReadAllText(path);
+            List<KeyboardKey> keyboardKeys = JsonSerializer.Deserialize<List<KeyboardKey>>(jsonData);
+
+            foreach (var key in keyboardKeys)
+                yield return CreateKey(key);
 
             // R2
             // R3
@@ -44,7 +53,7 @@ namespace DuckeyBoard.CustomControls
 
         private IEnumerable<Button> CreateR1()
         {
-            var R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == KeyboardRow.R1);
+            var R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == "R1");
 
             foreach (var R1Key in R1Keys)
                 yield return CreateKey(R1Key);
@@ -57,7 +66,7 @@ namespace DuckeyBoard.CustomControls
             btn.Width = (int)(_initBtnWidth * key.Unit);
             btn.Height = _initBtnHeight;
 
-            int x = (_initX + _margin) * (key.IndexInRow + 1);
+            int x = (int)((_initX + _margin) * (key.IndexInRow + 1));
             int y = (_initY + _margin) * (key.RowIndex + 1);
             btn.Location = new Point(x, y);
 
