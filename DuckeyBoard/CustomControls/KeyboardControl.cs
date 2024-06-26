@@ -13,7 +13,7 @@ namespace DuckeyBoard.CustomControls
         int _initBtnWidth;
         int _initBtnHeight;
         List<Button> _buttons;
-        Keyboard _keyboard;
+        Fullsize _keyboard;
 
         public KeyboardControl(
             int initX,
@@ -28,7 +28,7 @@ namespace DuckeyBoard.CustomControls
             _initBtnWidth = initBtnWidth;
             _initBtnHeight = initBtnHeight;
             _buttons = new List<Button>();
-            _keyboard = new Keyboard();
+            _keyboard = new Fullsize();
         }
 
         public IEnumerable<Button> Generate()
@@ -37,11 +37,11 @@ namespace DuckeyBoard.CustomControls
             // TODO: R1F
             // R1
             // return CreateR1();
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Helpers\KeyboardTemplate\Fullsize.json");
-            string jsonData = File.ReadAllText(path);
-            List<KeyboardKey> keyboardKeys = JsonSerializer.Deserialize<List<KeyboardKey>>(jsonData);
+            //string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Helpers\KeyboardTemplate\Fullsize.json");
+            //string jsonData = File.ReadAllText(path);
+            //List<Key> keyboardKeys = JsonSerializer.Deserialize<List<Key>>(jsonData);
 
-            foreach (var key in keyboardKeys)
+            foreach (var key in _keyboard.GenerateKeys())
                 yield return CreateKey(key);
 
             // R2
@@ -53,13 +53,13 @@ namespace DuckeyBoard.CustomControls
 
         private IEnumerable<Button> CreateR1()
         {
-            var R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == "R1");
+            var R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == KeyRow.R1F);
 
             foreach (var R1Key in R1Keys)
                 yield return CreateKey(R1Key);
         }
 
-        private Button CreateKey(KeyboardKey key)
+        private Button CreateKey(Key key)
         {
             Button btn = new Button();
             btn.Text = key.Title;

@@ -1,6 +1,6 @@
 ﻿namespace DuckeyBoard.Helpers
 {
-    public enum KeyboardRow
+    public enum KeyRow
     {
         R1F = 0,
         R1 = 1,

@@ -1,17 +1,17 @@
 ﻿namespace DuckeyBoard.Helpers
 {
-    public class Keyboard
+    public class Fullsize
     {
-        public List<KeyboardKey> KeyboardKeys { get; set; }
+        public List<Key> KeyboardKeys { get; set; }
 
-        public Keyboard()
+        public Fullsize()
         {
-            // KeyboardKeys = GenerateKeys();
+            KeyboardKeys = GenerateKeys();
         }
 
-        /*public List<KeyboardKey> GenerateKeys()
+        public List<Key> GenerateKeys()
         {
-            List<KeyboardKey> result = new List<KeyboardKey>();
+            List<Key> result = new List<Key>();
 
             #region R1F
             result.Add(new()
@@ -19,117 +19,130 @@
                 Title = "ESC",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 0
+                IndexInRow = 0,
+                WinKey = Keys.Escape
             });
             result.Add(new()
             {
                 Title = "F1",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 1.75F
+                IndexInRow = 1.75F,
+                WinKey = Keys.F1
             });
             result.Add(new()
             {
                 Title = "F2",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 2.75F
+                IndexInRow = 2.75F,
+                WinKey = Keys.F2
             });
             result.Add(new()
             {
                 Title = "F3",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 3.75F
+                IndexInRow = 3.75F,
+                WinKey = Keys.F3
             });
             result.Add(new()
             {
                 Title = "F4",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 4.75F
+                IndexInRow = 4.75F,
+                WinKey = Keys.F4
             });
             result.Add(new()
             {
                 Title = "F5",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 6F
+                IndexInRow = 6F,
+                WinKey = Keys.F5
             });
             result.Add(new()
             {
                 Title = "F6",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 7
+                IndexInRow = 7,
+                WinKey = Keys.F6
             });
             result.Add(new()
             {
                 Title = "F7",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 8
+                IndexInRow = 8,
+                WinKey = Keys.F7
             });
             result.Add(new()
             {
                 Title = "F8",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 9
+                IndexInRow = 9,
+                WinKey = Keys.F8
             });
             result.Add(new()
             {
                 Title = "F9",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 10.75F
+                IndexInRow = 10.75F,
+                WinKey = Keys.F9
             });
             result.Add(new()
             {
                 Title = "F10",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 11.75F
+                IndexInRow = 11.75F,
+                WinKey = Keys.F10
             });
             result.Add(new()
             {
                 Title = "F11",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 12.75F
+                IndexInRow = 12.75F,
+                WinKey = Keys.F11
             });
             result.Add(new()
             {
                 Title = "12",
                 ExtraTitle = "",
                 Unit = 1,
-                Row = KeyboardRow.R1F,
+                Row = KeyRow.R1F,
                 RowIndex = 0,
-                IndexInRow = 13.75F
+                IndexInRow = 13.75F,
+                WinKey = Keys.F12
             });
             #endregion
 
@@ -139,7 +152,7 @@
                 Title = "`",
                 ExtraTitle = "~",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 0
             });
@@ -148,7 +161,7 @@
                 Title = "1",
                 ExtraTitle = "!",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 1
             });
@@ -157,7 +170,7 @@
                 Title = "2",
                 ExtraTitle = "@",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 2
             });
@@ -166,7 +179,7 @@
                 Title = "3",
                 ExtraTitle = "#",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 3
             });
@@ -175,7 +188,7 @@
                 Title = "4",
                 ExtraTitle = "$",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 4
             });
@@ -184,7 +197,7 @@
                 Title = "5",
                 ExtraTitle = "%",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 5
             });
@@ -193,7 +206,7 @@
                 Title = "6",
                 ExtraTitle = "^",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 6
             });
@@ -202,7 +215,7 @@
                 Title = "7",
                 ExtraTitle = "&",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 7
             });
@@ -211,7 +224,7 @@
                 Title = "8",
                 ExtraTitle = "*",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 8
             });
@@ -220,7 +233,7 @@
                 Title = "9",
                 ExtraTitle = "(",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 9
             });
@@ -229,7 +242,7 @@
                 Title = "0",
                 ExtraTitle = ")",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 10
             });
@@ -238,7 +251,7 @@
                 Title = "-",
                 ExtraTitle = "_",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 11
             });
@@ -247,7 +260,7 @@
                 Title = "=",
                 ExtraTitle = "+",
                 Unit = 1,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 12
             });
@@ -256,13 +269,13 @@
                 Title = "backspace",
                 ExtraTitle = "",
                 Unit = 2,
-                Row = KeyboardRow.R1,
+                Row = KeyRow.R1,
                 RowIndex = 1,
                 IndexInRow = 13
             });
             #endregion
 
             return result;
-        }*/
+        }
     }
 }

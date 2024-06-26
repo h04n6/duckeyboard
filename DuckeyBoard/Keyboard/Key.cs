@@ -2,7 +2,7 @@
 
 namespace DuckeyBoard.Helpers
 {
-    public class KeyboardKey
+    public class Key
     {
         [JsonPropertyName("code")]
         public string Code { get; set; } = string.Empty;
@@ -13,11 +13,13 @@ namespace DuckeyBoard.Helpers
         [JsonPropertyName("unit")]
         public int Unit { get; set; }
         [JsonPropertyName("row")]
-        public string Row { get; set; }
+        public KeyRow Row { get; set; }
         [JsonPropertyName("rowIndex")]
         public int RowIndex { get; set; }
         [JsonPropertyName("indexInRow")]
         public float IndexInRow { get; set; }
+        [JsonPropertyName("winKey")]
+        public Keys WinKey { get; set; }
 
         // dev always counts from zero, so `index` starts from 0 :D
     }
