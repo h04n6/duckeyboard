@@ -1,19 +1,14 @@
-﻿using DuckeyBoard.Helpers;
-using System.Reflection;
-using System.Text.Json;
-using System.Windows.Forms;
+﻿using DuckeyBoard.KeyboardSetting;
 
 namespace DuckeyBoard.CustomControls
 {
     public class KeyboardControl
     {
-        int _initX;
-        int _initY;
-        int _margin;
-        int _initBtnWidth;
-        int _initBtnHeight;
-        List<Button> _buttons;
-        Fullsize _keyboard;
+        private int _initX;
+        private int _initY;
+        private int _margin;
+        private int _initBtnWidth;
+        private int _initBtnHeight;
 
         public KeyboardControl(
             int initX,
@@ -27,59 +22,73 @@ namespace DuckeyBoard.CustomControls
             _margin = margin;
             _initBtnWidth = initBtnWidth;
             _initBtnHeight = initBtnHeight;
-            _buttons = new List<Button>();
-            _keyboard = new Fullsize();
         }
-
-        public IEnumerable<Button> Generate()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyboardLayoutEnum"></param>
+        /// <returns></returns>
+        public IEnumerable<Button> Generate(KeyboardLayout keyboardLayoutEnum)
         {
-            // Generate keys each row
-            // TODO: R1F
-            // R1
-            // return CreateR1();
-            //string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Helpers\KeyboardTemplate\Fullsize.json");
-            //string jsonData = File.ReadAllText(path);
-            //List<Key> keyboardKeys = JsonSerializer.Deserialize<List<Key>>(jsonData);
-
-            foreach (var key in _keyboard.GenerateKeys())
-                yield return CreateKey(key);
-
-            // R2
-            // R3
-            // R4
-            // R4C (Control, function & space)
-
+            Keyboard keyboard = new Keyboard();
+            switch(keyboardLayoutEnum)
+            {
+                case KeyboardLayout.FULL_SIZE:
+                    return CreateKeys(keyboard.FullSize());
+                default:
+                    return CreateKeys(keyboard.FullSize());
+            }
         }
-
-        private IEnumerable<Button> CreateR1()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyboard"></param>
+        /// <returns></returns>
+        private IEnumerable<Button> CreateKeys(Keyboard keyboard)
         {
-            var R1Keys = _keyboard.KeyboardKeys.Where(x => x.Row == KeyRow.R1F);
+            foreach (var row in keyboard.Rows)
+            {
+                var keys = keyboard.Keys
+                    .Where(x => x.Row == row)
+                    .OrderBy(x => x.IndexInRow);
+                float totalUnit = 1;
+                foreach (var key in keys)
+                {
+                    // init button
+                    Button btn = new Button();
+                    btn.Text = key.Title;
+                    btn.Width = (int)(_initBtnWidth * key.Unit);
+                    btn.Height = _initBtnHeight;
 
-            foreach (var R1Key in R1Keys)
-                yield return CreateKey(R1Key);
+                    // location of button
+                    int x = Convert.ToInt32((_initX + _margin) * totalUnit);
+                    if (row == KeyRow.R1F && keyboard.KeyboardLayout == KeyboardLayout.FULL_SIZE)
+                        x = Convert.ToInt32((_initX + _margin) * (key.IndexInRow + 1));
+                    int y = (int)((_initY + _margin) * (key.RowIndex + 1));
+                    btn.Location = new Point(x, y);
+                    
+                    // assign name with WinKey enum to do event logic
+                    btn.Name = $"btn{key.WinKey}";
+
+                    // handle click event of button
+                    btn.Click += Btn_Key_Click;
+
+                    // save the total unit length of previous buttons
+                    // to calculate the next button localtion
+                    totalUnit += key.Unit;
+
+                    yield return btn;
+                }
+            }
         }
-
-        private Button CreateKey(Key key)
-        {
-            Button btn = new Button();
-            btn.Text = key.Title;
-            btn.Width = (int)(_initBtnWidth * key.Unit);
-            btn.Height = _initBtnHeight;
-
-            int x = (int)((_initX + _margin) * (key.IndexInRow + 1));
-            int y = (_initY + _margin) * (key.RowIndex + 1);
-            btn.Location = new Point(x, y);
-
-            btn.Click += Btn_Key_Click;
-
-            return btn;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_Key_Click(object? sender, EventArgs e)
         {
-            // TODO: open an popup and register a specified sound for this key
-
-            throw new NotImplementedException();
+            // TODO: 
         }
     }
 }

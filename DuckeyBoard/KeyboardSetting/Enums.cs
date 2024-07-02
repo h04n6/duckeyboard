@@ -1,4 +1,4 @@
-﻿namespace DuckeyBoard.Helpers
+﻿namespace DuckeyBoard.KeyboardSetting
 {
     public enum KeyRow
     {
@@ -8,5 +8,11 @@
         R3 = 3,
         R4 = 4,
         R4F = 5
+    }
+
+    public enum KeyboardLayout
+    {
+        FULL_SIZE = 0,
+        TKL = 1
     }
 }

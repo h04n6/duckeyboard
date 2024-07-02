@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DuckeyBoard.Helpers
+namespace DuckeyBoard.KeyboardSetting
 {
-    public class Key
+    public class KeyModel
     {
         [JsonPropertyName("code")]
         public string Code { get; set; } = string.Empty;
@@ -11,7 +11,7 @@ namespace DuckeyBoard.Helpers
         [JsonPropertyName("extraTitle")]
         public string ExtraTitle { get; set; }
         [JsonPropertyName("unit")]
-        public int Unit { get; set; }
+        public float Unit { get; set; }
         [JsonPropertyName("row")]
         public KeyRow Row { get; set; }
         [JsonPropertyName("rowIndex")]
