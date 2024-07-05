@@ -512,5 +512,235 @@
             IndexInRow = 9,
             WinKey = Keys.L
         };
+        public static KeyModel Semicolon = new ()
+        {
+            Title = ";",
+            ExtraTitle = ":",
+            Unit = 1,
+            Row = KeyRow.R3,
+            RowIndex = 3,
+            IndexInRow = 10,
+            WinKey = Keys.OemSemicolon
+        };
+        public static KeyModel Quote = new()
+        {
+            Title = "'",
+            ExtraTitle = "\"",
+            Unit = 1,
+            Row = KeyRow.R3,
+            RowIndex = 3,
+            IndexInRow = 11,
+            WinKey = Keys.OemQuotes
+        };
+        public static KeyModel Enter = new()
+        {
+            Title = "enter",
+            ExtraTitle = "",
+            Unit = 2,
+            Row = KeyRow.R3,
+            RowIndex = 3,
+            IndexInRow = 12,
+            WinKey = Keys.Enter
+        };
+        public static KeyModel LShift = new()
+        {
+            Title = "shift",
+            ExtraTitle = "",
+            Unit = 2,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 0,
+            WinKey = Keys.LShiftKey
+        };
+        public static KeyModel Z = new()
+        {
+            Title = "z",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 1,
+            WinKey = Keys.Z
+        };
+        public static KeyModel X = new()
+        {
+            Title = "x",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 2,
+            WinKey = Keys.X
+        };
+        public static KeyModel C = new()
+        {
+            Title = "c",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 3,
+            WinKey = Keys.C
+        };
+        public static KeyModel V = new()
+        {
+            Title = "v",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 4,
+            WinKey = Keys.V
+        };
+        public static KeyModel B = new()
+        {
+            Title = "b",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 5,
+            WinKey = Keys.B
+        };
+        public static KeyModel N = new()
+        {
+            Title = "n",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 6,
+            WinKey = Keys.N
+        };
+        public static KeyModel M = new()
+        {
+            Title = "m",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 7,
+            WinKey = Keys.M
+        };
+        public static KeyModel Comma = new()
+        {
+            Title = ",",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 8,
+            WinKey = Keys.Oemcomma
+        };
+        public static KeyModel Period = new()
+        {
+            Title = ".",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 9,
+            WinKey = Keys.OemPeriod
+        };
+        public static KeyModel Slash = new()
+        {
+            Title = "/",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 10,
+            WinKey = Keys.Oem2
+        };
+        public static KeyModel RShift = new()
+        {
+            Title = "shift",
+            ExtraTitle = "",
+            Unit = 2.75F,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 11,
+            WinKey = Keys.RShiftKey
+        };
+        public static KeyModel LControl = new()
+        {
+            Title = "ctrl",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 0,
+            WinKey = Keys.LControlKey
+        };
+        public static KeyModel LWindows = new()
+        {
+            Title = "code",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 1,
+            WinKey = Keys.LWin
+        };
+        public static KeyModel LAlter = new()
+        {
+            Title = "alt",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 2,
+            WinKey = Keys.LMenu
+        };
+        public static KeyModel Space = new()
+        {
+            Title = "",
+            ExtraTitle = "",
+            Unit = 6.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 3,
+            WinKey = Keys.Space
+        };
+        public static KeyModel RAlter = new()
+        {
+            Title = "alt",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 4,
+            WinKey = Keys.RMenu
+        };
+        public static KeyModel RWindows = new()
+        {
+            Title = "code",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 5,
+            WinKey = Keys.RWin
+        };
+        public static KeyModel Menu = new()
+        {
+            Title = "menu",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 6,
+            WinKey = Keys.Menu
+        };
+        public static KeyModel RControl = new()
+        {
+            Title = "ctrl",
+            ExtraTitle = "",
+            Unit = 1.25F,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 7,
+            WinKey = Keys.RControlKey
+        };
     }
 }

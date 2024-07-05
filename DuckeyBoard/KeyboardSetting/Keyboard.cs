@@ -27,6 +27,23 @@
                 Key.T, Key.Y, Key.U, Key.I, Key.O, Key.P,
                 Key.OpenBracket, Key.CloseBracket, Key.Pipe 
             });
+            // R3
+            result.AddRange(new List<KeyModel>() {
+                Key.CapsLock, Key.A, Key.S, Key.D, Key.F,
+                Key.G, Key.H, Key.J, Key.K, Key.L, Key.Semicolon,
+                Key.Quote, Key.Enter
+            });
+            // R4
+            result.AddRange(new List<KeyModel>() {
+                Key.LShift, Key.Z, Key.X, Key.C, Key.V,
+                Key.B, Key.N, Key.M, Key.Comma, Key.Period, Key.Slash,
+                Key.RShift
+            });
+            // R4F
+            result.AddRange(new List<KeyModel>() {
+                Key.LControl, Key.LWindows, Key.LAlter, Key.Space, Key.RAlter,
+                Key.Menu, Key.RWindows, Key.RControl
+            });
 
             return new Keyboard
             {

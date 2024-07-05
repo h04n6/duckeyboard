@@ -29,6 +29,8 @@ namespace DuckeyBoard
 
         private const int WM_KEYDOWN = 0x0100;
         private const int WM_KEYUP = 0x101;
+        private const int WM_UNICHAR = 0x0109;
+        private const int WM_CHAR = 0x0102;
 
         #endregion
 
@@ -97,6 +99,7 @@ namespace DuckeyBoard
             {
                 KeyboardHookStruct kbStruct = (KeyboardHookStruct)Marshal.PtrToStructure(lParam, typeof(KeyboardHookStruct));
 
+                // if (wParam == (IntPtr)WM_KEYDOWN)
                 if (wParam == (IntPtr)WM_KEYDOWN)
                 {
                     if (KeyDown != null)
