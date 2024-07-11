@@ -19,7 +19,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 1.75F,
+            IndexInRow = 2,
             WinKey = Keys.F1
         };
         public static KeyModel F2 = new()
@@ -29,7 +29,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 2.75F,
+            IndexInRow = 3,
             WinKey = Keys.F2
         };
         public static KeyModel F3 = new()
@@ -39,7 +39,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 3.75F,
+            IndexInRow = 4,
             WinKey = Keys.F3
         };
         public static KeyModel F4 = new()
@@ -49,7 +49,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 4.75F,
+            IndexInRow = 5,
             WinKey = Keys.F4
         };
         public static KeyModel F5 = new()
@@ -59,7 +59,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 6.35F,
+            IndexInRow = 7,
             WinKey = Keys.F5
         };
         public static KeyModel F6 = new()
@@ -69,7 +69,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 7.35F,
+            IndexInRow = 8,
             WinKey = Keys.F6
         };
         public static KeyModel F7 = new()
@@ -79,7 +79,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 8.35F,
+            IndexInRow = 9,
             WinKey = Keys.F7
         };
         public static KeyModel F8 = new()
@@ -89,7 +89,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 9.35F,
+            IndexInRow = 10,
             WinKey = Keys.F8
         };
         public static KeyModel F9 = new()
@@ -99,7 +99,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 10.85F,
+            IndexInRow = 12,
             WinKey = Keys.F9
         };
         public static KeyModel F10 = new()
@@ -109,7 +109,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 11.85F,
+            IndexInRow = 13,
             WinKey = Keys.F10
         };
         public static KeyModel F11 = new()
@@ -119,7 +119,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 12.85F,
+            IndexInRow = 14,
             WinKey = Keys.F11
         };
         public static KeyModel F12 = new()
@@ -129,7 +129,7 @@
             Unit = 1,
             Row = KeyRow.R1F,
             RowIndex = 0,
-            IndexInRow = 13.85F,
+            IndexInRow = 15,
             WinKey = Keys.F12
         };
         public static KeyModel Tilde = new()
@@ -536,7 +536,7 @@
         {
             Title = "enter",
             ExtraTitle = "",
-            Unit = 2,
+            Unit = 2.25F,
             Row = KeyRow.R3,
             RowIndex = 3,
             IndexInRow = 12,
@@ -546,7 +546,7 @@
         {
             Title = "shift",
             ExtraTitle = "",
-            Unit = 2,
+            Unit = 2.25F,
             Row = KeyRow.R4,
             RowIndex = 4,
             IndexInRow = 0,

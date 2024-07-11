@@ -35,7 +35,7 @@ namespace DuckeyBoard
             string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string quackFilePath = Path.Combine(appDirectory, @"resources\sound\quack.wav");
 
-            KeyboardControl keyboardControl = new KeyboardControl(50, 50);
+            KeyboardControl keyboardControl = new KeyboardControl(48, 48);
             this.Controls.AddRange(keyboardControl.Generate(KeyboardLayout.FULL_SIZE).ToArray());
 
             ListBox listBox = new ListBox();

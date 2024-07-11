@@ -1,4 +1,5 @@
 ﻿using DuckeyBoard.KeyboardSetting;
+using System.Diagnostics;
 
 namespace DuckeyBoard.CustomControls
 {
@@ -13,9 +14,9 @@ namespace DuckeyBoard.CustomControls
         public KeyboardControl(
             int initX,
             int initY,
-            int margin = 3,
-            int initBtnWidth = 45,
-            int initBtnHeight = 45)
+            int margin = 12,
+            int initBtnWidth = 48,
+            int initBtnHeight = 48)
         {
             _initX = initX;
             _initY = initY;
@@ -61,10 +62,13 @@ namespace DuckeyBoard.CustomControls
                     btn.Height = _initBtnHeight;
 
                     // location of button
-                    int x = Convert.ToInt32((_initX + _margin) * totalUnit);
+                    int x = (int)(_initX * totalUnit);
+
                     if (row == KeyRow.R1F && keyboard.KeyboardLayout == KeyboardLayout.FULL_SIZE)
-                        x = Convert.ToInt32((_initX + _margin) * (key.IndexInRow + 1));
-                    int y = (int)((_initY + _margin) * (key.RowIndex + 1));
+                        x = (int)(_initX * (key.IndexInRow + 1));
+                    
+                    int y = _initY * (key.RowIndex + 1);
+
                     btn.Location = new Point(x, y);
                     
                     // assign name with WinKey enum to do event logic
