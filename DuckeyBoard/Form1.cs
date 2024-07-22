@@ -39,7 +39,7 @@ namespace DuckeyBoard
             this.Controls.AddRange(keyboardControl.Generate(KeyboardLayout.FULL_SIZE).ToArray());
 
             ListBox listBox = new ListBox();
-            listBox.Location = new Point(10, 10);
+            listBox.Location = new Point(1200, 10);
             listBox.Width = 100;
             listBox.Height = 250;
             this.Controls.Add(listBox);
@@ -49,14 +49,17 @@ namespace DuckeyBoard
 
             _keyboardHook.KeyDown += (sender, e) =>
             {
-                Task.Run(() => PlayTrack(quackFilePath));
-
-                listBox.Items.Add($"{e.KeyCode} - {e.KeyValue} - {e.KeyData}");
-
-                foreach (var button in this.Controls.OfType<Button>())
+                if (!IsUnikey(e.KeyCode))
                 {
-                    if (button.Name == $"btn{e.KeyCode}")
-                        button.BackColor = Color.Red;
+                    Task.Run(() => PlayTrack(quackFilePath));
+
+                    listBox.Items.Add($"{e.KeyCode} - {e.KeyValue} - {e.KeyData}");
+
+                    foreach (var button in this.Controls.OfType<Button>())
+                    {
+                        if (button.Name == $"btn{e.KeyCode}")
+                            button.BackColor = Color.Red;
+                    }
                 }
             };
 
@@ -67,14 +70,12 @@ namespace DuckeyBoard
                     if (button.Name == $"btn{e.KeyCode}")
                         button.BackColor = Color.White;
                 }
-
-                StringBuilder sb = new StringBuilder();
-                var stopTrack = mciSendString($"stop cachcach", sb, 0, IntPtr.Zero);
-                var closeTrack = mciSendString($"close cachcach", sb, 0, IntPtr.Zero);
             };
         }
-
-        // TODO: 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="quackFilePath"></param>
         private void PlayTrack(string quackFilePath)
         {
             StringBuilder sb = new StringBuilder();
@@ -101,6 +102,24 @@ namespace DuckeyBoard
 
             var stopTrack = mciSendString($"stop {trackName}", sb, 0, IntPtr.Zero);
             var closeTrack = mciSendString($"close {trackName}", sb, 0, IntPtr.Zero);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        private bool IsUnikey(Keys key)
+        {
+            // when typing with unikey, a bracket & a backspace is pressed
+            List<Keys> unikeys = new List<Keys>() { 
+                Keys.Back, 
+                Keys.Packet 
+            };
+
+            if (unikeys.Contains(key))
+                return true;
+
+            return false;
         }
     }
 }
