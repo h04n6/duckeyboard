@@ -2,6 +2,7 @@
 {
     public class Key
     {
+        #region R1F
         public static KeyModel ESC = new()
         {
             Title = "ESC",
@@ -132,6 +133,8 @@
             IndexInRow = 15,
             WinKey = Keys.F12
         };
+        #endregion
+        #region R1
         public static KeyModel Tilde = new()
         {
             Title = "`",
@@ -272,6 +275,8 @@
             IndexInRow = 13,
             WinKey = Keys.Back
         };
+        #endregion
+        #region R2
         public static KeyModel Tab = new()
         {
             Title = "tab",
@@ -412,6 +417,8 @@
             IndexInRow = 13,
             WinKey = Keys.OemPipe
         };
+        #endregion
+        #region R3
         public static KeyModel CapsLock = new()
         {
             Title = "caps lock",
@@ -542,6 +549,8 @@
             IndexInRow = 12,
             WinKey = Keys.Enter
         };
+        #endregion
+        #region R4
         public static KeyModel LShift = new()
         {
             Title = "shift",
@@ -662,6 +671,29 @@
             IndexInRow = 11,
             WinKey = Keys.RShiftKey
         };
+        public static KeyModel Blank_1U = new()
+        {
+            Title = "",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 12,
+            WinKey = null,
+            IsBlank = true
+        };
+        public static KeyModel ArrowUp = new()
+        {
+            Title = "Up",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4,
+            RowIndex = 4,
+            IndexInRow = 13,
+            WinKey = Keys.RShiftKey
+        };
+        #endregion
+        #region R4F
         public static KeyModel LControl = new()
         {
             Title = "ctrl",
@@ -742,5 +774,36 @@
             IndexInRow = 7,
             WinKey = Keys.RControlKey
         };
+        public static KeyModel ArrowLeft = new()
+        {
+            Title = "Left",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 9,
+            WinKey = Keys.RShiftKey
+        };
+        public static KeyModel ArrowDown = new()
+        {
+            Title = "Down",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 10,
+            WinKey = Keys.RShiftKey
+        };
+        public static KeyModel ArrowRight = new()
+        {
+            Title = "Right",
+            ExtraTitle = "",
+            Unit = 1,
+            Row = KeyRow.R4F,
+            RowIndex = 5,
+            IndexInRow = 11,
+            WinKey = Keys.RShiftKey
+        };
+        #endregion R4F
     }
 }

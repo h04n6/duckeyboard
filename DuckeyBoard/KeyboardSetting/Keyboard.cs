@@ -44,6 +44,11 @@
                 Key.LControl, Key.LWindows, Key.LAlter, Key.Space, Key.RAlter,
                 Key.Menu, Key.RWindows, Key.RControl
             });
+            // Arrow
+            result.AddRange(new List<KeyModel>() { 
+                Key.Blank_1U,
+                Key.ArrowDown, Key.ArrowUp, Key.ArrowRight, Key.ArrowLeft
+            });
 
             return new Keyboard
             {

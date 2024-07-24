@@ -61,6 +61,17 @@ namespace DuckeyBoard.CustomControls
                     btn.Width = (int)(_initBtnWidth * key.Unit);
                     btn.Height = _initBtnHeight;
 
+                    if (key.IsBlank)
+                    {
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.FlatAppearance.BorderSize = 0;
+                        btn.FlatAppearance.MouseOverBackColor = btn.BackColor;
+                        btn.BackColorChanged += (s, e) => {
+                            btn.FlatAppearance.MouseOverBackColor = btn.BackColor;
+                        };
+                        btn.Enabled = false;
+                    }
+
                     // location of button
                     int x = (int)(_initX * totalUnit);
 

@@ -19,7 +19,9 @@ namespace DuckeyBoard.KeyboardSetting
         [JsonPropertyName("indexInRow")]
         public float IndexInRow { get; set; }
         [JsonPropertyName("winKey")]
-        public Keys WinKey { get; set; }
+        public Keys? WinKey { get; set; }
+        [JsonPropertyName("isBlank")]
+        public bool IsBlank { get; set; } = false;
 
         // dev always counts from zero, so `index` starts from 0 :D
     }
