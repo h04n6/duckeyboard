@@ -36,13 +36,16 @@ namespace DuckeyBoard
             string quackFilePath = Path.Combine(appDirectory, @"resources\sound\quack.wav");
 
             KeyboardControl keyboardControl = new KeyboardControl(48, 48);
-            this.Controls.AddRange(keyboardControl.Generate(KeyboardLayout.FULL_SIZE).ToArray());
+            Panel panelKeyboard = new Panel();
+            panelKeyboard.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top;
+            panelKeyboard.Controls.AddRange(keyboardControl.Generate(KeyboardLayout.FULL_SIZE).ToArray());
+            this.containerMain.Panel2.Controls.Add(panelKeyboard);
 
-            ListBox listBox = new ListBox();
-            listBox.Location = new Point(1200, 10);
-            listBox.Width = 100;
-            listBox.Height = 250;
-            this.Controls.Add(listBox);
+            //ListBox listBox = new ListBox();
+            //listBox.Location = new Point(1200, 10);
+            //listBox.Width = 100;
+            //listBox.Height = 250;
+            //this.Controls.Add(listBox);
 
             _keyboardHook = new KeyboardListener();
             _keyboardHook.Install();
@@ -53,13 +56,13 @@ namespace DuckeyBoard
                 {
                     Task.Run(() => PlayTrack(quackFilePath));
 
-                    listBox.Items.Add($"{e.KeyCode} - {e.KeyValue} - {e.KeyData}");
+                    // listBox.Items.Add($"{e.KeyCode} - {e.KeyValue} - {e.KeyData}");   
+                }
 
-                    foreach (var button in this.Controls.OfType<Button>())
-                    {
-                        if (button.Name == $"btn{e.KeyCode}")
-                            button.BackColor = Color.Red;
-                    }
+                foreach (var button in this.Controls.OfType<Button>())
+                {
+                    if (button.Name == $"btn{e.KeyCode}")
+                        button.BackColor = Color.Red;
                 }
             };
 

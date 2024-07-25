@@ -1,5 +1,5 @@
 ﻿using DuckeyBoard.KeyboardSetting;
-using System.Diagnostics;
+using DuckeyBoard.Utilities;
 
 namespace DuckeyBoard.CustomControls
 {
@@ -32,7 +32,7 @@ namespace DuckeyBoard.CustomControls
         public IEnumerable<Button> Generate(KeyboardLayout keyboardLayoutEnum)
         {
             Keyboard keyboard = new Keyboard();
-            switch(keyboardLayoutEnum)
+            switch (keyboardLayoutEnum)
             {
                 case KeyboardLayout.FULL_SIZE:
                     return CreateKeys(keyboard.FullSize());
@@ -47,26 +47,24 @@ namespace DuckeyBoard.CustomControls
         /// <returns></returns>
         private IEnumerable<Button> CreateKeys(Keyboard keyboard)
         {
-            foreach (var row in keyboard.Rows)
+            foreach (var (row, rowIndex) in keyboard.KeyboardRows.WithIndex())
             {
-                var keys = keyboard.Keys
-                    .Where(x => x.Row == row)
-                    .OrderBy(x => x.IndexInRow);
                 float totalUnit = 1;
-                foreach (var key in keys)
+                foreach (var key in row.Keys)
                 {
                     // init button
                     Button btn = new Button();
                     btn.Text = key.Title;
-                    btn.Width = (int)(_initBtnWidth * key.Unit);
-                    btn.Height = _initBtnHeight;
+                    btn.Width = (int)(_initBtnWidth * key.HorizontalUnit);
+                    btn.Height = (int)(_initBtnHeight * key.VerticalUnit);
 
-                    if (key.IsBlank)
+                    if (key.Type == KeyType.BLANK)
                     {
                         btn.FlatStyle = FlatStyle.Flat;
                         btn.FlatAppearance.BorderSize = 0;
                         btn.FlatAppearance.MouseOverBackColor = btn.BackColor;
-                        btn.BackColorChanged += (s, e) => {
+                        btn.BackColorChanged += (s, e) =>
+                        {
                             btn.FlatAppearance.MouseOverBackColor = btn.BackColor;
                         };
                         btn.Enabled = false;
@@ -74,14 +72,11 @@ namespace DuckeyBoard.CustomControls
 
                     // location of button
                     int x = (int)(_initX * totalUnit);
-
-                    if (row == KeyRow.R1F && keyboard.KeyboardLayout == KeyboardLayout.FULL_SIZE)
-                        x = (int)(_initX * (key.IndexInRow + 1));
-                    
-                    int y = _initY * (key.RowIndex + 1);
-
+                    int y = _initY * rowIndex;
+                    if (row.Row != KeyRow.R1F)
+                        y += _initBtnHeight / 2;
                     btn.Location = new Point(x, y);
-                    
+
                     // assign name with WinKey enum to do event logic
                     btn.Name = $"btn{key.WinKey}";
 
@@ -90,7 +85,9 @@ namespace DuckeyBoard.CustomControls
 
                     // save the total unit length of previous buttons
                     // to calculate the next button localtion
-                    totalUnit += key.Unit;
+                    totalUnit += key.HorizontalUnit;
+
+                    btn.Margin = new Padding(20);
 
                     yield return btn;
                 }
