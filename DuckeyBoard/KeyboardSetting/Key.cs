@@ -480,15 +480,6 @@
             WinKey = null,
             Type = KeyType.BLANK
         };
-        public static KeyModel Blank_1_And_A_Half_U_Row = new()
-        {
-            Title = "",
-            ExtraTitle = "",
-            HorizontalUnit = 1,
-            VerticalUnit = 0.5F,
-            WinKey = null,
-            Type = KeyType.BLANK
-        };
         public static KeyModel ArrowUp = new()
         {
             Title = "Up",

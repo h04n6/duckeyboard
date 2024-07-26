@@ -35,10 +35,12 @@ namespace DuckeyBoard
             string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string quackFilePath = Path.Combine(appDirectory, @"resources\sound\quack.wav");
 
-            KeyboardControl keyboardControl = new KeyboardControl(48, 48);
+            KeyboardControl keyboardControl = new KeyboardControl(KeyboardLayout.FULL_SIZE, 48, 48);
             Panel panelKeyboard = new Panel();
             panelKeyboard.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Top;
-            panelKeyboard.Controls.AddRange(keyboardControl.Generate(KeyboardLayout.FULL_SIZE).ToArray());
+            panelKeyboard.Width = keyboardControl.KeyboardWidth;
+            panelKeyboard.Height = keyboardControl.KeyboardHeight;
+            panelKeyboard.Controls.AddRange(keyboardControl.Keyboard.ToArray());
             this.containerMain.Panel2.Controls.Add(panelKeyboard);
 
             //ListBox listBox = new ListBox();
@@ -114,9 +116,9 @@ namespace DuckeyBoard
         private bool IsUnikey(Keys key)
         {
             // when typing with unikey, a bracket & a backspace is pressed
-            List<Keys> unikeys = new List<Keys>() { 
-                Keys.Back, 
-                Keys.Packet 
+            List<Keys> unikeys = new List<Keys>() {
+                Keys.Back,
+                Keys.Packet
             };
 
             if (unikeys.Contains(key))

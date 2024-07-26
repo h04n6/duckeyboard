@@ -11,7 +11,13 @@ namespace DuckeyBoard.CustomControls
         private int _initBtnWidth;
         private int _initBtnHeight;
 
+        public int KeyboardHeight { get; set; }
+        public int KeyboardWidth { get; set; }
+        public KeyboardLayout KeyboardLayout { get; set; }
+        public IEnumerable<Button> Keyboard { get; set; }
+
         public KeyboardControl(
+            KeyboardLayout keyboardLayout,
             int initX,
             int initY,
             int margin = 12,
@@ -23,13 +29,15 @@ namespace DuckeyBoard.CustomControls
             _margin = margin;
             _initBtnWidth = initBtnWidth;
             _initBtnHeight = initBtnHeight;
+            KeyboardLayout = keyboardLayout;
+            Keyboard = Generate(KeyboardLayout);
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="keyboardLayoutEnum"></param>
         /// <returns></returns>
-        public IEnumerable<Button> Generate(KeyboardLayout keyboardLayoutEnum)
+        private IEnumerable<Button> Generate(KeyboardLayout keyboardLayoutEnum)
         {
             Keyboard keyboard = new Keyboard();
             switch (keyboardLayoutEnum)
@@ -45,11 +53,13 @@ namespace DuckeyBoard.CustomControls
         /// </summary>
         /// <param name="keyboard"></param>
         /// <returns></returns>
-        private IEnumerable<Button> CreateKeys(Keyboard keyboard)
+        private List<Button> CreateKeys(Keyboard keyboard)
         {
+            int maxWidthUnit = 0;
+            List<Button> keys = new List<Button>();
             foreach (var (row, rowIndex) in keyboard.KeyboardRows.WithIndex())
             {
-                float totalUnit = 1;
+                float totalHorizontalUnit = 1;
                 foreach (var key in row.Keys)
                 {
                     // init button
@@ -71,7 +81,7 @@ namespace DuckeyBoard.CustomControls
                     }
 
                     // location of button
-                    int x = (int)(_initX * totalUnit);
+                    int x = (int)(_initX * totalHorizontalUnit);
                     int y = _initY * rowIndex;
                     if (row.Row != KeyRow.R1F)
                         y += _initBtnHeight / 2;
@@ -85,13 +95,21 @@ namespace DuckeyBoard.CustomControls
 
                     // save the total unit length of previous buttons
                     // to calculate the next button localtion
-                    totalUnit += key.HorizontalUnit;
+                    totalHorizontalUnit += key.HorizontalUnit;
 
                     btn.Margin = new Padding(20);
-
-                    yield return btn;
+                    keys.Add(btn);
+                    // yield return btn;
                 }
+
+                if (maxWidthUnit < totalHorizontalUnit)
+                    maxWidthUnit = (int)totalHorizontalUnit;
             }
+
+            KeyboardWidth = (maxWidthUnit * _initBtnWidth) + 50;
+            KeyboardHeight = (keyboard.KeyboardRows.Count() * _initBtnHeight) + 50;
+
+            return keys;
         }
         /// <summary>
         /// 

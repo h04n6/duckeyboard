@@ -24,11 +24,6 @@
                             Key.PrintScreen, Key.ScrollLock, Key.Pause
                         }
                     },
-                    //new KeyboardRow
-                    //{
-                    //    Row = KeyRow.BLANK,
-                    //    Keys = new List<KeyModel> { Key.Blank_1_And_A_Half_U_Row }
-                    //},
                     new KeyboardRow
                     {
                         Row = KeyRow.R1,
