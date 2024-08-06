@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="KeyboardSetting\KeyboardTemplate\Fullsize.json">
+    <None Update="KeyboardSettings\KeyboardTemplate\Fullsize.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="resources\sound\quack.wav">

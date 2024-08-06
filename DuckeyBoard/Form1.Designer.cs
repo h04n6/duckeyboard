@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             containerMain = new SplitContainer();
-            textBox1 = new TextBox();
+            cbxKeyboardLayout = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)containerMain).BeginInit();
             containerMain.Panel1.SuspendLayout();
             containerMain.SuspendLayout();
@@ -44,7 +45,8 @@
             // 
             // containerMain.Panel1
             // 
-            containerMain.Panel1.Controls.Add(textBox1);
+            containerMain.Panel1.Controls.Add(label1);
+            containerMain.Panel1.Controls.Add(cbxKeyboardLayout);
             // 
             // containerMain.Panel2
             // 
@@ -53,12 +55,23 @@
             containerMain.SplitterDistance = 223;
             containerMain.TabIndex = 2;
             // 
-            // textBox1
+            // cbxKeyboardLayout
             // 
-            textBox1.Location = new Point(30, 45);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
+            cbxKeyboardLayout.FormattingEnabled = true;
+            cbxKeyboardLayout.Location = new Point(10, 70);
+            cbxKeyboardLayout.Name = "cbxKeyboardLayout";
+            cbxKeyboardLayout.Size = new Size(163, 23);
+            cbxKeyboardLayout.TabIndex = 0;
+            cbxKeyboardLayout.SelectedIndexChanged += cbxKeyboardLayout_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Layouts";
             // 
             // Form1
             // 
@@ -79,6 +92,7 @@
         #endregion
 
         private SplitContainer containerMain;
-        private TextBox textBox1;
+        private Label label1;
+        private ComboBox cbxKeyboardLayout;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DuckeyBoard.KeyboardSetting
+﻿namespace DuckeyBoard.KeyboardSettings
 {
     public enum KeyRow
     {

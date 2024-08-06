@@ -1,4 +1,4 @@
-﻿using DuckeyBoard.KeyboardSetting;
+﻿using DuckeyBoard.KeyboardSettings;
 using DuckeyBoard.Utilities;
 
 namespace DuckeyBoard.CustomControls
@@ -44,6 +44,8 @@ namespace DuckeyBoard.CustomControls
             {
                 case KeyboardLayout.FULL_SIZE:
                     return CreateKeys(keyboard.FullSize());
+                case KeyboardLayout.TKL:
+                    return CreateKeys(keyboard.TKL());
                 default:
                     return CreateKeys(keyboard.FullSize());
             }
