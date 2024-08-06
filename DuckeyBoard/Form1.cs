@@ -7,8 +7,6 @@ namespace DuckeyBoard
 {
     public partial class Form1 : Form
     {
-
-
         KeyboardListener _keyboardHook;
 
         public Form1()
@@ -50,7 +48,8 @@ namespace DuckeyBoard
         private void cbxKeyboardLayout_SelectedIndexChanged(object sender, EventArgs e)
         {
             var cbxKeyboardSeleted = cbxKeyboardLayout.SelectedItem as dynamic;
-            if (cbxKeyboardSeleted != null) {
+            if (cbxKeyboardSeleted != null)
+            {
                 switch (cbxKeyboardSeleted.Value)
                 {
                     case KeyboardLayout.FULL_SIZE:
@@ -110,6 +109,27 @@ namespace DuckeyBoard
                         button.BackColor = Color.White;
                 }
             };
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int size = -1;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    string text = File.ReadAllText(file);
+                    size = text.Length;
+                }
+                catch (IOException)
+                {
+                }
+            }
+            Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            Console.WriteLine(result); // <-- For debugging use.
         }
     }
 }

@@ -5,28 +5,28 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DuckeyBoard.Utilities
+namespace DuckeyBoard.TrackSettings
 {
     public class TrackExtensions
     {
         [DllImport("winmm.dll")]
-        public static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
+        public static extern int mciSendString(string command, StringBuilder buffer, int bufferSize, nint hwndCallback);
 
         private string _trackFilePath;
 
         public TrackExtensions(string trackFilePath)
         {
-            this._trackFilePath = trackFilePath;
+            _trackFilePath = trackFilePath;
         }
 
         private void PlayTrack(string quackFilePath)
         {
             StringBuilder sb = new StringBuilder();
             string trackName = "quackquack";
-            int openTrack = mciSendString($"open \"{quackFilePath}\" type waveaudio alias {trackName}", sb, 0, IntPtr.Zero);
-            int playTrack = mciSendString($"play {trackName}", sb, 0, IntPtr.Zero);
+            int openTrack = mciSendString($"open \"{quackFilePath}\" type waveaudio alias {trackName}", sb, 0, nint.Zero);
+            int playTrack = mciSendString($"play {trackName}", sb, 0, nint.Zero);
             sb = new StringBuilder();
-            mciSendString($"status {trackName} length", sb, 255, IntPtr.Zero);
+            mciSendString($"status {trackName} length", sb, 255, nint.Zero);
             int length = Convert.ToInt32(sb.ToString());
             bool IsBeingPlayed = true;
             int pos = 0;
@@ -34,7 +34,7 @@ namespace DuckeyBoard.Utilities
             while (IsBeingPlayed)
             {
                 sb = new StringBuilder();
-                mciSendString($"status {trackName} position", sb, 255, IntPtr.Zero);
+                mciSendString($"status {trackName} position", sb, 255, nint.Zero);
                 pos = Convert.ToInt32(sb.ToString());
                 if (pos >= length)
                 {
@@ -43,9 +43,11 @@ namespace DuckeyBoard.Utilities
                 }
             }
 
-            var stopTrack = mciSendString($"stop {trackName}", sb, 0, IntPtr.Zero);
-            var closeTrack = mciSendString($"close {trackName}", sb, 0, IntPtr.Zero);
+            var stopTrack = mciSendString($"stop {trackName}", sb, 0, nint.Zero);
+            var closeTrack = mciSendString($"close {trackName}", sb, 0, nint.Zero);
         }
+
+
 
     }
 }

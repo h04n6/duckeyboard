@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             containerMain = new SplitContainer();
-            cbxKeyboardLayout = new ComboBox();
             label1 = new Label();
+            cbxKeyboardLayout = new ComboBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)containerMain).BeginInit();
             containerMain.Panel1.SuspendLayout();
             containerMain.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             // containerMain.Panel1
             // 
+            containerMain.Panel1.Controls.Add(button1);
             containerMain.Panel1.Controls.Add(label1);
             containerMain.Panel1.Controls.Add(cbxKeyboardLayout);
             // 
@@ -55,6 +57,15 @@
             containerMain.SplitterDistance = 223;
             containerMain.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(10, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Layouts";
+            // 
             // cbxKeyboardLayout
             // 
             cbxKeyboardLayout.FormattingEnabled = true;
@@ -64,14 +75,15 @@
             cbxKeyboardLayout.TabIndex = 0;
             cbxKeyboardLayout.SelectedIndexChanged += cbxKeyboardLayout_SelectedIndexChanged;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(10, 52);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Layouts";
+            button1.Location = new Point(10, 135);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
@@ -94,5 +106,6 @@
         private SplitContainer containerMain;
         private Label label1;
         private ComboBox cbxKeyboardLayout;
+        private Button button1;
     }
 }
